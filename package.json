@@ -1,0 +1,31 @@
+{
+  "name": "fullstack-news-api",
+  "version": "1.0.0",
+  "description": "APIs para o projeto Fullstack News",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegosantos17/fullstack-news-api.git"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "Turma Trainning Set/2021",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diegosantos17/fullstack-news-api/issues"
+  },
+  "homepage": "https://github.com/diegosantos17/fullstack-news-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
