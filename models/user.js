@@ -7,7 +7,10 @@ const profile = new mongoose.Schema({
 
 //Model
 const user = new mongoose.Schema({
-    name: String,
+    name: {
+        type: String,
+        required: [true, 'O nome é obrigatório']
+    },
     lastname: String,
     email: String,
     password: String,

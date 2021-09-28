@@ -30,7 +30,7 @@ const create = async function(req, res, next){
         res.send(result); 
     } catch (error) {
         res.statusCode = 400; //ou 500
-        res.send({success: false});
+        res.send({success: false, error: error});
     }
 }
 

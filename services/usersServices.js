@@ -1,10 +1,14 @@
 //Responsável por regras e acesso a base
 const user = require('../models/user');
+const bcrypt = require('../crosscuting/bcrypt');
 
 //CRUD
 //Create
 const create = async function(item){
     try {
+
+        item.password = await bcrypt.encryptPassword(item.password); 
+
         let result = await user.create(item);
         return result;
     } catch (error) {
@@ -15,7 +19,7 @@ const create = async function(item){
 //Read/Read By Id
 const find = async function(params){
     try {
-        let result = await user.find();
+        let result = await user.find({},{password: 0});
         return result;
     } catch (error) {
         throw error;
@@ -24,7 +28,16 @@ const find = async function(params){
 
 const findById = async function(id){
     try {
-        let result = await user.findById(id);
+        let result = await user.findById(id, {password: 0});
+        return result;
+    } catch (error) {
+        throw error;
+    }
+}
+
+const authentication = async function(email){
+    try {
+        let result = await user.findOne({email: email},{});
         return result;
     } catch (error) {
         throw error;
@@ -34,6 +47,7 @@ const findById = async function(id){
 //Update
 const update = async function(id, item){
     try {
+        item.password = await bcrypt.encryptPassword(item.password); 
         let result = await user.findByIdAndUpdate(id, item);
         return result;
     } catch (error) {
@@ -56,5 +70,6 @@ module.exports = {
     find,
     findById,
     update,
-    destroy
+    destroy,
+    authentication
 }
