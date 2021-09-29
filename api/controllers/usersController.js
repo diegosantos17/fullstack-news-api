@@ -25,7 +25,7 @@ const findById = async function(req, res, next){
 
 const create = async function(req, res, next){
     try {
-        let result = await usersServices.create(req.body);
+        let result = await usersServices.create(req.userJwt, req.body);
         res.statusCode = 201;
         res.send(result); 
     } catch (error) {
@@ -36,7 +36,7 @@ const create = async function(req, res, next){
 
 const update = async function(req, res, next){
     try {
-        let result = await usersServices.update(req.params.index, req.body);
+        let result = await usersServices.update(req.userJwt, req.params.index, req.body);
         res.statusCode = 202;
         res.send(result); 
     } catch (error) {
