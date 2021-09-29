@@ -73,6 +73,8 @@ const update = async function(userAuth, id, item){
 //Delete (*)
 const destroy = async function(userAuth, id){
     try {
+        let item = await user.findById(id); 
+        
         item.deletedAt = Date.now();
         item.userDelete = {
             _id: userAuth.id,

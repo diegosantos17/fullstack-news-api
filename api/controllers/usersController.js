@@ -45,9 +45,21 @@ const update = async function(req, res, next){
     }
 }
 
+const destroy = async function(req, res, next){
+    try {
+        let result = await usersServices.destroy(req.userJwt, req.params.index, req.body);
+        res.statusCode = 202;
+        res.send(result); 
+    } catch (error) {
+        res.statusCode = 400; //ou 500
+        res.send({success: false});
+    }
+}
+
 module.exports = {
     find,
     findById,
     create,
-    update
+    update,
+    destroy
 }
