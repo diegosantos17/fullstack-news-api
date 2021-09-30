@@ -6,23 +6,10 @@ const userAuth = new mongoose.Schema({
 });
 
 const profile = new mongoose.Schema({
-    _id: mongoose.ObjectId,
-    name: String
-});
-
-//Model
-const user = new mongoose.Schema({
     name: {
         type: String,
         required: [true, 'O nome é obrigatório']
     },
-    lastname: {
-        type: String,
-        required: [true, 'O sobrenome é obrigatório']
-    },
-    email: String,
-    password: String,
-    profile: profile,
     createdAt: Date,
     updatedAt: Date,
     deletedAt: Date,
@@ -35,6 +22,6 @@ const user = new mongoose.Schema({
     userDelete: {
         type: userAuth
     },
-}, { collection: 'users'});
+}, { collection: 'profiles'});
 
-module.exports = mongoose.model('users', user);
+module.exports = mongoose.model('profiles', profile);

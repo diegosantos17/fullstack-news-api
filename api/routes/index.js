@@ -10,6 +10,9 @@ const userRouter = require('./usersRouter');
 router.use('/users', userRouter);
 
 // Rotas de profiles
+const profileRouter = require('./profilesRouter');
+router.use('/profiles', profileRouter);
+
 // Rotas de categoreis
 // Rotas de news
 

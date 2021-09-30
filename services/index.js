@@ -26,5 +26,6 @@ mongoose.connect(`mongodb+srv://admin:${process.env.DB_PASSWORD}@cluster0.flqrh.
 const services = {};
 
 services.usersService = require('./usersServices');
+services.profilesService = require('./profilesServices');
 
 module.exports = services;
