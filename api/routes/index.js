@@ -13,8 +13,13 @@ router.use('/users', userRouter);
 const profileRouter = require('./profilesRouter');
 router.use('/profiles', profileRouter);
 
-// Rotas de categoreis
+// Rotas de categories
+const categoryRouter = require('./categoriesRouter');
+router.use('/categories', categoryRouter);
+
 // Rotas de news
+const newsRouter = require('./newsRouter');
+router.use('/news', newsRouter);
 
 module.exports = router;
 

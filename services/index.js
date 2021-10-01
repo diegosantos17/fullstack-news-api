@@ -27,5 +27,7 @@ const services = {};
 
 services.usersService = require('./usersServices');
 services.profilesService = require('./profilesServices');
+services.categoriesService = require('./categoriesService');
+services.newsService = require('./newsService');
 
 module.exports = services;
