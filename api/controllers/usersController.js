@@ -35,7 +35,7 @@ const create = async function(req, res, next){
 const update = async function(req, res, next){
     try {
         let result = await usersServices.update(req.userJwt, req.params.index, req.body);
-        res.status(202).send(utilResponse.format(result, "update"));
+        res.status(202).send(utilResponse.format(result, "put"));
     } catch (error) {
         res.statusCode = error.errors ? 400 : 500;
         res.send(utilResponse.format(error));
