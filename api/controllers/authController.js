@@ -23,7 +23,7 @@ const auth = async function (req, res, next) {
       }
 
       const token = jwt.sign({ user: userDto }, "luizaopalmeirensenato", {
-        expiresIn: 6000 // 10 minutos 
+        expiresIn: 600 // 10 minutos 
       });
 
       return res.status(200).send({ auth: isEqual, user: userDto, token: token });
