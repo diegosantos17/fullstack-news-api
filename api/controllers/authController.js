@@ -14,7 +14,7 @@ const auth = async function (req, res, next) {
 
       // DTOPattern
       let userDto = {
-        id: user._id,
+        _id: user._id,
         name: user.name,
         lastname: user.lastname,
         fullname: user.name + ' ' + user.lastname,
@@ -23,7 +23,7 @@ const auth = async function (req, res, next) {
       }
 
       const token = jwt.sign({ user: userDto }, "luizaopalmeirensenato", {
-        expiresIn: 600 // 10 minutos 
+        expiresIn: 3600 // 60 minutos 
       });
 
       return res.status(200).send({ auth: isEqual, user: userDto, token: token });
@@ -38,7 +38,7 @@ const auth = async function (req, res, next) {
 const renew = async function (req, res, next) {
   try {
     const token = jwt.sign({ id: req.userJwt.id, profile: req.userJwt.profile }, "luizaopalmeirensenato", {
-      expiresIn: 600 // 10 minutos
+      expiresIn: 3600 // 60 minutos
     });
 
     return res.status(200).send(({ auth: true, token: token }));
